@@ -3,16 +3,9 @@ var app = angular.module('nbaRoutes');
 app.controller('teamCtrl', function($scope, $routeParams, teamService, teamData){
     $scope.teamData = teamData;
     console.log(teamData);
-    $scope.newGame = {
-        homeTeam: $scope.homeTeam.split(' ').join('').toLowerCase(),
-        submitGame: addNewGame().then(function(){
-            getTeamData($scope.newGame.homeTeam).then(function(data){
-                $scope.teamData = data;
-                $scope.newGame = {};
-                $scope.showNewGameForm = false;
-            })
-        })
-    };
+
+
+
 
     $scope.showNewGameForm = false;
     $scope.toggleNewGameForm = function() {
@@ -36,6 +29,17 @@ app.controller('teamCtrl', function($scope, $routeParams, teamService, teamData)
         $scope.logoPath = 'images/heat-logo.png';
     }
 
+    //$scope.newGame = {
+    //    homeTeam: $scope.homeTeam.split(' ').join('').toLowerCase(),
+    //    submitGame: teamService.addNewGame($scope.newGame).then(function(){
+    //        getTeamData($scope.newGame.homeTeam).then(function(data){
+    //            $scope.teamData = data;
+    //            $scope.newGame = {};
+    //            $scope.showNewGameForm = false;
+    //        })
+    //
+    //    })
+    //};
 
 
 });

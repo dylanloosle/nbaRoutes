@@ -8,10 +8,10 @@ app.config(function($routeProvider, $httpProvider){
             controller: 'homeCtrl'
         })
         .when('/teams/:team', {
-            templateUrl: '/Javascript/nbaRoutes/js/teams/teamTmpl.html',
+            templateUrl: 'js/teams/teamTmpl.html',
             controller: 'teamCtrl',
             resolve: {
-                teamData: function(teamService){
+                teamData: function(teamService, $route){
                     return teamService.getTeamData($route.current.params.team);
                 }
             }
